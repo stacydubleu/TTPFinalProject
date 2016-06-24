@@ -1,0 +1,28 @@
+<h1>Can't decide on a mustache to try on? You're in luck! This is the random mustache generator page. </h1>
+<h2>Use the default picture or upload your own!</h2>
+<img id="blah" src="images/trump.jpg" alt="yourimage" width="450px"/>
+<div id="mustaches">
+</div>
+
+<div id="editor"></div>
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result)
+			};
+            reader.readAsDataURL(input.files[0]);
+        }
+}
+
+$(function() {
+    $( ".staches" ).draggable();
+});
+</script>
+
+<img class='staches' src="/images/{{stuff}}">
+<br>
+<button id="random"><a href="/random">Generate a new mustache!</a></button>

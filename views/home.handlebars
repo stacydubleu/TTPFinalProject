@@ -1,0 +1,44 @@
+<h1>Hi hi homepage for mustaches </h1>
+<h2>Pick your mustache!</h2>
+<h2>Use the default picture or upload your own!</h2>
+<input type='file' onchange="readURL(this);" />
+<br><br>
+<img id="blah" src="images/trump.jpg" alt="yourimage" width="450px" />
+<div id="mustaches">
+</div>
+
+<div id="editor"></div>
+
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result)
+			};
+            reader.readAsDataURL(input.files[0]);
+        }
+}
+
+var mustaches = ['a.png', 'b.png', 'c.png', 'd.png', 'e.png', 'f.png', 'g.png', 'h.png', 'i.png', 'j.png', 'k.png', 'l.png', 'm.png', 'n.png', 'o.png', 'p.png', 'q.png', 'r.png', 's.png', 't.png'];
+
+function nextImage(mustaches) {
+	var bullet =document.createElement('li');
+    for(var i = 0; i < mustaches.length;i++){
+    	var img = document.createElement('img');
+    	img.setAttribute('class', 'staches');
+    	img.src='images/'+mustaches[i];
+    	bullet.appendChild(img);
+    	document.getElementById('mustaches').appendChild(bullet);
+    }
+}
+
+nextImage(mustaches);
+
+$(function() {
+    $( ".staches" ).draggable();
+});
+
+</script>
